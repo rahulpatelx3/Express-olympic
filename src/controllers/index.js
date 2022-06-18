@@ -2,7 +2,7 @@ const MensRanking = require('../models/mens');
 
 const getData = async (req,res) => {
   try {
-    let data = await MensRanking.find();
+    let data = await MensRanking.find().sort({"ranking": 1});
     res.status(200).json(data);
   } catch (error) {
     res.status(400).json({message: `something went wrong. ERROR : ${error}`});
